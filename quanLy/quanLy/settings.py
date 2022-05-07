@@ -39,8 +39,25 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tour.apps.TourConfig',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'oauth2_provider'
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    )
+}
+
+OAUTH2_INFO = {
+    "client_id" : "s8EkbgtO4X8IXcigpVTXplPsSx0ycMVmknyatkmv",
+    "client_serect": "5Gd99JUAzJ08MhfDToA88APrI66rSTtDawi5hswb8ctVlZt5U7tJ4xtAPOFdyPuhVv3xcTzO4mM21dT9JavyMi0wVmAqkuXWoW98ZgAIHo3JgjP0JN5WOKe2ikKNjyCF"
+}
+
+# OAUTH2_PROVIDER = {
+#     'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore',
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

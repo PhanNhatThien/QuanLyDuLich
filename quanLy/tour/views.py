@@ -2,6 +2,8 @@ from secrets import token_hex
 
 from django.shortcuts import render
 from rest_framework import viewsets, generics, status
+from rest_framework.views import APIView
+
 from .models import DiaDanh, Tour, TinTuc, Tag, Action, Rating, User
 from .serializers import (DiaDanhSerializer, TourSerializer, TinTucSerializer,
                           TinTucDetailSerializer, ActionSerializer, RatingSerializer, UserSerializer)
@@ -9,6 +11,7 @@ from .paginator import BasePagination
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.http import Http404
+from django.conf import settings
 
 
 # from .. import tour
@@ -119,3 +122,8 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
     # def current_user(self, request):
     #     return Response(self.serializer_class(request.user, context={'request': request}).data,
     #                     status=status.HTTP_200_OK)
+
+
+class AuthInfo(APIView):
+    def get(self, request):
+        return Response(settings.OAUTH2_INFO, status=status.HTTP_200_OK)
