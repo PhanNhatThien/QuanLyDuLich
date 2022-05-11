@@ -1,17 +1,20 @@
 from secrets import token_hex
 
 from django.shortcuts import render
-from rest_framework import viewsets, generics, status
+from django.template.defaulttags import ResetCycleNode
+from requests import request
+from rest_framework import viewsets, generics, status, permissions
 from rest_framework.views import APIView
 
-from .models import DiaDanh, Tour, TinTuc, Tag, Action, Rating, User
+from .models import DiaDanh, Tour, TinTuc, Tag, Action, Rating, User, Comment, TinTucView
 from .serializers import (DiaDanhSerializer, TourSerializer, TinTucSerializer,
-                          TinTucDetailSerializer, ActionSerializer, RatingSerializer, UserSerializer)
+                          TinTucDetailSerializer, ActionSerializer, RatingSerializer, UserSerializer, CommentSerializer, TinTucViewSerializer)
 from .paginator import BasePagination
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.http import Http404
 from django.conf import settings
+from django.db.models import F
 
 
 # from .. import tour
@@ -55,9 +58,17 @@ class TourViewSet(viewsets.ViewSet, generics.ListAPIView):
         return Response(TinTucSerializer(tintuc, many=True).data, status=status.HTTP_200_OK)
 
 
+
+
 class TinTucViewSet(viewsets.ViewSet, generics.RetrieveAPIView):
     queryset = TinTuc.objects.filter(active=True)
     serializer_class = TinTucDetailSerializer
+
+    def get_permissions(self):
+        if self.action in ['add_comment', 'take_action', 'rate']:
+            return [permissions.IsAuthenticated()]
+
+        return [permissions.AllowAny()]
 
     @action(methods=['post'], detail=True, url_path="tags")
     def add_tag(self, request, pk):
@@ -79,7 +90,14 @@ class TinTucViewSet(viewsets.ViewSet, generics.RetrieveAPIView):
 
     @action(methods=['post'], detail=True, url_path="add_comment")
     def add_comment(self, request, pk):
-        pass
+        content = request.data.get('content')
+        if content:
+            c = Comment.objects.create(content=content, tintuc=self.get_object() ,creator=request.user)
+
+            return Response(CommentSerializer(c).data,
+                            status=status.HTTP_201_CREATED)
+
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -90,7 +108,7 @@ class TinTucViewSet(viewsets.ViewSet, generics.RetrieveAPIView):
         except IndexError or ValueError:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
-            action = Action.objects.create(type=action_type)
+            action = Action.objects.create(type=action_type, creator=request.user, tintuc=self.get_object())
 
             return Response(ActionSerializer(action).data, status= status.HTTP_200_OK)
 
@@ -102,26 +120,36 @@ class TinTucViewSet(viewsets.ViewSet, generics.RetrieveAPIView):
         except IndexError or ValueError:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
-            r = Rating.objects.create(rating=rating)
+            r = Rating.objects.create(rate=rating, creator=request.user, tintuc=self.get_object())
 
             return Response(RatingSerializer(r).data, status=status.HTTP_200_OK)
+
+    @action(methods=['get'], detail=True, url_path='views')
+    def inc_view(self, request, pk):
+        v, created = TinTucView.objects.get_or_create(tintuc=self.get_object())
+        v.views = F('views') + 1
+        v.save()
+
+        v.refresh_from_db()
+
+        return Response(TinTucViewSerializer(v).data, status=status.HTTP_200_OK)
 
 
 class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
     pass
     queryset = User.objects.filter(is_active=True)
     serializer_class = UserSerializer
-    #
-    # def get_permissions(self):
-    #     if self.action == 'current_user':
-    #         return [permissions.IsAuthenticated()]
-    #
-    #     return [permissions.AllowAny()]
-    #
-    # @action(methods=['get'], url_path="current-user", detail=False)
-    # def current_user(self, request):
-    #     return Response(self.serializer_class(request.user, context={'request': request}).data,
-    #                     status=status.HTTP_200_OK)
+
+    def get_permissions(self):
+        if self.action == 'get_current_user':
+            return [permissions.IsAuthenticated()]
+
+        return [permissions.AllowAny()]
+
+    @action(methods=['get'], url_path="current-user", detail=False)
+    def get_current_user(self, request):
+        return Response(self.serializer_class(request.user).data,
+                        status=status.HTTP_200_OK)
 
 
 class AuthInfo(APIView):

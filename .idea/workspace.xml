@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="03f373ce-ec13-45c0-9d0a-e7bd8f57b3d6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quanLy/quanLy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/quanLy/quanLy/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quanLy/quanLy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quanLy/quanLy/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quanLy/tour/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quanLy/tour/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quanLy/tour/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/quanLy/tour/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quanLy/tour/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/quanLy/tour/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quanLy/tour/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quanLy/tour/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

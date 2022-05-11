@@ -1,6 +1,6 @@
 
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
-from .models import DiaDanh, Tour, TinTuc, Tag, Action, Rating, Comment, User
+from .models import DiaDanh, Tour, TinTuc, Tag, Action, Rating, Comment, User, TinTucView
 
 class DiaDanhSerializer(ModelSerializer):
     class Meta:
@@ -68,6 +68,12 @@ class RatingSerializer(ModelSerializer):
     class Meta:
         model = Rating
         fields = ["id", "rate", "created_date"]
+
+
+class TinTucViewSerializer(ModelSerializer):
+    class Meta:
+        model = TinTucView
+        fields = ["id", "views", "tintuc"]
 
 
 class UserSerializer(ModelSerializer):

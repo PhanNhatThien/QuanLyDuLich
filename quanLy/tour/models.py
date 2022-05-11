@@ -96,3 +96,9 @@ class Action(ActionBase):
 
 class Rating(ActionBase):
     rate = models.PositiveSmallIntegerField(default=0)
+
+class TinTucView(models.Model):
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    views = models.IntegerField(default=0)
+    tintuc = models.OneToOneField(TinTuc, on_delete=models.CASCADE)
