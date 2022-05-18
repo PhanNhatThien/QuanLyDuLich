@@ -8,6 +8,7 @@ router.register("DiaDanh", views.DiaDanhViewSet, 'DiaDanh')
 router.register("tour",views.TourViewSet, 'tour')
 router.register("tintuc",views.TinTucViewSet, 'tintuc')
 router.register("users",views.UserViewSet, 'user')
+router.register("comments", views.CommentViewSet, 'commment')
 
 urlpatterns = [
     path('', include(router.urls)),

@@ -54,9 +54,7 @@ class TinTuc(MyModelBase):
 
 class Comment(models.Model):
     content = models.TextField()
-    tintuc = models.ForeignKey(TinTuc,
-                               related_name='comments',
-                               on_delete=models.CASCADE)
+    tintuc = models.ForeignKey(TinTuc, on_delete=models.CASCADE)
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)

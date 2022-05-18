@@ -117,7 +117,7 @@ CREATE TABLE `django_admin_log` (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_tour_user_id` FOREIGN KEY (`user_id`) REFERENCES `tour_user` (`id`),
   CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2022-05-05 03:28:23.397904','1','cho ben thanh',1,'[{\"added\": {}}]',8,1),(2,'2022-05-05 03:39:47.649994','1','Buon Don',2,'[{\"changed\": {\"fields\": [\"Subject\", \"Image\", \"Diadanh\"]}}]',8,1),(3,'2022-05-05 03:41:06.095621','1','cho ben thanh',2,'[{\"changed\": {\"fields\": [\"Subject\", \"Image\", \"Diadanh\"]}}]',8,1),(4,'2022-05-05 03:42:23.722510','2','Buon Don',1,'[{\"added\": {}}]',8,1);
+INSERT INTO `django_admin_log` VALUES (1,'2022-05-05 03:28:23.397904','1','cho ben thanh',1,'[{\"added\": {}}]',8,1),(2,'2022-05-05 03:39:47.649994','1','Buon Don',2,'[{\"changed\": {\"fields\": [\"Subject\", \"Image\", \"Diadanh\"]}}]',8,1),(3,'2022-05-05 03:41:06.095621','1','cho ben thanh',2,'[{\"changed\": {\"fields\": [\"Subject\", \"Image\", \"Diadanh\"]}}]',8,1),(4,'2022-05-05 03:42:23.722510','2','Buon Don',1,'[{\"added\": {}}]',8,1),(5,'2022-05-18 16:55:34.271621','3','Thethe',1,'[{\"added\": {}}]',7,1),(6,'2022-05-18 17:07:30.189906','2','chi tiet 2',1,'[{\"added\": {}}]',9,1),(7,'2022-05-18 17:07:55.459474','2','chi tiet 2',2,'[{\"changed\": {\"fields\": [\"Tour\"]}}]',9,1),(8,'2022-05-18 17:09:50.459269','5','good',1,'[{\"added\": {}}]',13,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2022-05-03 16:31:40.106813'),(2,'contenttypes','0002_remove_content_type_name','2022-05-03 16:31:41.325589'),(3,'auth','0001_initial','2022-05-03 16:31:43.310361'),(4,'auth','0002_alter_permission_name_max_length','2022-05-03 16:31:44.122852'),(5,'auth','0003_alter_user_email_max_length','2022-05-03 16:31:44.185301'),(6,'auth','0004_alter_user_username_opts','2022-05-03 16:31:44.232178'),(7,'auth','0005_alter_user_last_login_null','2022-05-03 16:31:44.294679'),(8,'auth','0006_require_contenttypes_0002','2022-05-03 16:31:44.325923'),(9,'auth','0007_alter_validators_add_error_messages','2022-05-03 16:31:44.372810'),(10,'auth','0008_alter_user_username_max_length','2022-05-03 16:31:44.404049'),(11,'auth','0009_alter_user_last_name_max_length','2022-05-03 16:31:44.450972'),(12,'auth','0010_alter_group_name_max_length','2022-05-03 16:31:44.607218'),(13,'auth','0011_update_proxy_permissions','2022-05-03 16:31:44.654910'),(14,'auth','0012_alter_user_first_name_max_length','2022-05-03 16:31:44.733086'),(15,'tour','0001_initial','2022-05-03 16:31:48.186837'),(16,'admin','0001_initial','2022-05-03 16:31:49.673919'),(17,'admin','0002_logentry_remove_auto_add','2022-05-03 16:31:49.767677'),(18,'admin','0003_logentry_add_action_flag_choices','2022-05-03 16:31:49.845794'),(19,'sessions','0001_initial','2022-05-03 16:31:51.314565'),(20,'tour','0002_rename_category_diadanh','2022-05-03 16:35:30.145334'),(21,'tour','0003_tour','2022-05-04 16:39:12.977761'),(22,'tour','0004_tintuc','2022-05-05 04:48:41.741878'),(23,'tour','0005_alter_tintuc_tour','2022-05-05 07:24:29.102156'),(24,'tour','0006_alter_tintuc_tour','2022-05-05 07:32:37.810884'),(25,'tour','0007_tag_tintuc_tags','2022-05-05 15:31:16.532747'),(26,'tour','0008_rating_action','2022-05-06 07:58:03.635710'),(27,'tour','0009_comment','2022-05-06 09:44:39.500357'),(28,'oauth2_provider','0001_initial','2022-05-07 16:27:46.238153'),(29,'oauth2_provider','0002_auto_20190406_1805','2022-05-07 16:27:46.597294'),(30,'oauth2_provider','0003_auto_20201211_1314','2022-05-07 16:27:47.259336'),(31,'oauth2_provider','0004_auto_20200902_2022','2022-05-07 16:27:52.057719'),(32,'oauth2_provider','0005_auto_20211222_2352','2022-05-07 16:27:52.287317'),(33,'tour','0010_lessionview','2022-05-11 05:12:08.894640'),(34,'tour','0010_tintucview','2022-05-11 05:15:13.582255'),(35,'tour','0011_alter_tintucview_tintuc','2022-05-11 05:22:42.739960');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2022-05-03 16:31:40.106813'),(2,'contenttypes','0002_remove_content_type_name','2022-05-03 16:31:41.325589'),(3,'auth','0001_initial','2022-05-03 16:31:43.310361'),(4,'auth','0002_alter_permission_name_max_length','2022-05-03 16:31:44.122852'),(5,'auth','0003_alter_user_email_max_length','2022-05-03 16:31:44.185301'),(6,'auth','0004_alter_user_username_opts','2022-05-03 16:31:44.232178'),(7,'auth','0005_alter_user_last_login_null','2022-05-03 16:31:44.294679'),(8,'auth','0006_require_contenttypes_0002','2022-05-03 16:31:44.325923'),(9,'auth','0007_alter_validators_add_error_messages','2022-05-03 16:31:44.372810'),(10,'auth','0008_alter_user_username_max_length','2022-05-03 16:31:44.404049'),(11,'auth','0009_alter_user_last_name_max_length','2022-05-03 16:31:44.450972'),(12,'auth','0010_alter_group_name_max_length','2022-05-03 16:31:44.607218'),(13,'auth','0011_update_proxy_permissions','2022-05-03 16:31:44.654910'),(14,'auth','0012_alter_user_first_name_max_length','2022-05-03 16:31:44.733086'),(15,'tour','0001_initial','2022-05-03 16:31:48.186837'),(16,'admin','0001_initial','2022-05-03 16:31:49.673919'),(17,'admin','0002_logentry_remove_auto_add','2022-05-03 16:31:49.767677'),(18,'admin','0003_logentry_add_action_flag_choices','2022-05-03 16:31:49.845794'),(19,'sessions','0001_initial','2022-05-03 16:31:51.314565'),(20,'tour','0002_rename_category_diadanh','2022-05-03 16:35:30.145334'),(21,'tour','0003_tour','2022-05-04 16:39:12.977761'),(22,'tour','0004_tintuc','2022-05-05 04:48:41.741878'),(23,'tour','0005_alter_tintuc_tour','2022-05-05 07:24:29.102156'),(24,'tour','0006_alter_tintuc_tour','2022-05-05 07:32:37.810884'),(25,'tour','0007_tag_tintuc_tags','2022-05-05 15:31:16.532747'),(26,'tour','0008_rating_action','2022-05-06 07:58:03.635710'),(27,'tour','0009_comment','2022-05-06 09:44:39.500357'),(28,'oauth2_provider','0001_initial','2022-05-07 16:27:46.238153'),(29,'oauth2_provider','0002_auto_20190406_1805','2022-05-07 16:27:46.597294'),(30,'oauth2_provider','0003_auto_20201211_1314','2022-05-07 16:27:47.259336'),(31,'oauth2_provider','0004_auto_20200902_2022','2022-05-07 16:27:52.057719'),(32,'oauth2_provider','0005_auto_20211222_2352','2022-05-07 16:27:52.287317'),(33,'tour','0010_lessionview','2022-05-11 05:12:08.894640'),(34,'tour','0010_tintucview','2022-05-11 05:15:13.582255'),(35,'tour','0011_alter_tintucview_tintuc','2022-05-11 05:22:42.739960'),(36,'tour','0012_alter_comment_tintuc','2022-05-18 01:58:21.898042');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,7 +236,7 @@ CREATE TABLE `oauth2_provider_accesstoken` (
   CONSTRAINT `oauth2_provider_acce_id_token_id_85db651b_fk_oauth2_pr` FOREIGN KEY (`id_token_id`) REFERENCES `oauth2_provider_idtoken` (`id`),
   CONSTRAINT `oauth2_provider_acce_source_refresh_token_e66fbc72_fk_oauth2_pr` FOREIGN KEY (`source_refresh_token_id`) REFERENCES `oauth2_provider_refreshtoken` (`id`),
   CONSTRAINT `oauth2_provider_accesstoken_user_id_6e4c9a65_fk_tour_user_id` FOREIGN KEY (`user_id`) REFERENCES `tour_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,7 +245,7 @@ CREATE TABLE `oauth2_provider_accesstoken` (
 
 LOCK TABLES `oauth2_provider_accesstoken` WRITE;
 /*!40000 ALTER TABLE `oauth2_provider_accesstoken` DISABLE KEYS */;
-INSERT INTO `oauth2_provider_accesstoken` VALUES (1,'qlDr3hwjJpxtYCAYgEbyYqDPTk6SRb','2022-05-10 19:37:37.490554','read write',1,1,'2022-05-10 09:37:37.492552','2022-05-10 09:37:37.492552',NULL,NULL),(2,'2aqxCrZvvdnpnQNkfN7lL6xIkfE8uE','2022-05-11 02:33:26.887579','read write',1,1,'2022-05-10 16:33:26.889578','2022-05-10 16:33:26.889578',NULL,NULL),(3,'FRUbDSMsjaCNA5iG79gbT24GvCCxuH','2022-05-11 02:53:33.688217','read write',1,1,'2022-05-10 16:53:33.692205','2022-05-10 16:53:33.692205',NULL,NULL);
+INSERT INTO `oauth2_provider_accesstoken` VALUES (1,'qlDr3hwjJpxtYCAYgEbyYqDPTk6SRb','2022-05-10 19:37:37.490554','read write',1,1,'2022-05-10 09:37:37.492552','2022-05-10 09:37:37.492552',NULL,NULL),(2,'2aqxCrZvvdnpnQNkfN7lL6xIkfE8uE','2022-05-11 02:33:26.887579','read write',1,1,'2022-05-10 16:33:26.889578','2022-05-10 16:33:26.889578',NULL,NULL),(3,'FRUbDSMsjaCNA5iG79gbT24GvCCxuH','2022-05-11 02:53:33.688217','read write',1,1,'2022-05-10 16:53:33.692205','2022-05-10 16:53:33.692205',NULL,NULL),(4,'2g6431DGuDYovUzrbhhHII5HSYJX6m','2022-05-18 11:43:48.629423','read write',1,1,'2022-05-18 01:43:48.631426','2022-05-18 01:43:48.631426',NULL,NULL),(5,'iLhdETYaa9skEvxCZXVo9K6bV8eEGw','2022-05-18 12:14:01.960165','read write',1,1,'2022-05-18 02:14:01.965158','2022-05-18 02:14:01.965158',NULL,NULL),(6,'t6gOOrhgwgVCFwthb8O4g0ooHSUY9X','2022-05-18 16:20:26.763154','read write',1,1,'2022-05-18 06:20:26.764228','2022-05-18 06:20:26.764228',NULL,NULL);
 /*!40000 ALTER TABLE `oauth2_provider_accesstoken` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,7 +384,7 @@ CREATE TABLE `oauth2_provider_refreshtoken` (
   CONSTRAINT `oauth2_provider_refr_access_token_id_775e84e8_fk_oauth2_pr` FOREIGN KEY (`access_token_id`) REFERENCES `oauth2_provider_accesstoken` (`id`),
   CONSTRAINT `oauth2_provider_refr_application_id_2d1c311b_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
   CONSTRAINT `oauth2_provider_refreshtoken_user_id_da837fce_fk_tour_user_id` FOREIGN KEY (`user_id`) REFERENCES `tour_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +393,7 @@ CREATE TABLE `oauth2_provider_refreshtoken` (
 
 LOCK TABLES `oauth2_provider_refreshtoken` WRITE;
 /*!40000 ALTER TABLE `oauth2_provider_refreshtoken` DISABLE KEYS */;
-INSERT INTO `oauth2_provider_refreshtoken` VALUES (1,'vKVM4n1nv7CJ6daSuwEVUE0lU2e8vX',1,1,1,'2022-05-10 09:37:37.531500','2022-05-10 09:37:37.531500',NULL),(2,'ErELXXiq2eg7BCycARZK7EMrZqZGbN',2,1,1,'2022-05-10 16:33:26.904579','2022-05-10 16:33:26.904579',NULL),(3,'7iqIeIErTVXk0r3GF95CHp7bweKtMz',3,1,1,'2022-05-10 16:53:33.699198','2022-05-10 16:53:33.699198',NULL);
+INSERT INTO `oauth2_provider_refreshtoken` VALUES (1,'vKVM4n1nv7CJ6daSuwEVUE0lU2e8vX',1,1,1,'2022-05-10 09:37:37.531500','2022-05-10 09:37:37.531500',NULL),(2,'ErELXXiq2eg7BCycARZK7EMrZqZGbN',2,1,1,'2022-05-10 16:33:26.904579','2022-05-10 16:33:26.904579',NULL),(3,'7iqIeIErTVXk0r3GF95CHp7bweKtMz',3,1,1,'2022-05-10 16:53:33.699198','2022-05-10 16:53:33.699198',NULL),(4,'tPrT1PCwxO5RNl5udJugHWoNMRYyJi',4,1,1,'2022-05-18 01:43:48.643423','2022-05-18 01:43:48.643423',NULL),(5,'ANrwtlF2EhNUv46wslMQF1kVGfe6I5',5,1,1,'2022-05-18 02:14:01.974162','2022-05-18 02:14:01.974162',NULL),(6,'FJbdfsil0dos9Jk35Z5LT4hjUqAjJA',6,1,1,'2022-05-18 06:20:26.773560','2022-05-18 06:20:26.773560',NULL);
 /*!40000 ALTER TABLE `oauth2_provider_refreshtoken` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,7 +449,7 @@ CREATE TABLE `tour_comment` (
   KEY `tour_comment_tintuc_id_34107a5f_fk_tour_tintuc_id` (`tintuc_id`),
   CONSTRAINT `tour_comment_creator_id_d3f9b0ce_fk_tour_user_id` FOREIGN KEY (`creator_id`) REFERENCES `tour_user` (`id`),
   CONSTRAINT `tour_comment_tintuc_id_34107a5f_fk_tour_tintuc_id` FOREIGN KEY (`tintuc_id`) REFERENCES `tour_tintuc` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,6 +458,7 @@ CREATE TABLE `tour_comment` (
 
 LOCK TABLES `tour_comment` WRITE;
 /*!40000 ALTER TABLE `tour_comment` DISABLE KEYS */;
+INSERT INTO `tour_comment` VALUES (1,'hay','2022-05-18 06:19:16.457941','2022-05-18 07:10:31.501286',1,1),(4,'xuat sac','2022-05-18 07:03:46.090756','2022-05-18 07:03:46.090756',2,1),(5,'good','2022-05-18 17:09:50.453277','2022-05-18 17:09:50.453277',3,1);
 /*!40000 ALTER TABLE `tour_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -564,7 +565,7 @@ CREATE TABLE `tour_tintuc` (
   UNIQUE KEY `tour_tintuc_subject_tour_id_ace252e4_uniq` (`subject`,`tour_id`),
   KEY `tour_tintuc_tour_id_f96034c3_fk_tour_tour_id` (`tour_id`),
   CONSTRAINT `tour_tintuc_tour_id_f96034c3_fk_tour_tour_id` FOREIGN KEY (`tour_id`) REFERENCES `tour_tour` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -573,7 +574,7 @@ CREATE TABLE `tour_tintuc` (
 
 LOCK TABLES `tour_tintuc` WRITE;
 /*!40000 ALTER TABLE `tour_tintuc` DISABLE KEYS */;
-INSERT INTO `tour_tintuc` VALUES (1,'chi tiet 1','tour/2022/05/R_VFTTP7d.jpg','2022-05-05 03:28:23.390909','2022-05-05 16:31:32.463699',1,'du lich',1);
+INSERT INTO `tour_tintuc` VALUES (1,'chi tiet 1','tour/2022/05/R_VFTTP7d.jpg','2022-05-05 03:28:23.390909','2022-05-05 16:31:32.463699',1,'du lich',1),(2,'chi tiet 2','tour/2022/05/R_zsjkLfX.jpg','2022-05-18 17:07:30.166906','2022-05-18 17:07:55.443475',1,'địa danh đẹp',2);
 /*!40000 ALTER TABLE `tour_tintuc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -631,7 +632,7 @@ CREATE TABLE `tour_tintucview` (
 
 LOCK TABLES `tour_tintucview` WRITE;
 /*!40000 ALTER TABLE `tour_tintucview` DISABLE KEYS */;
-INSERT INTO `tour_tintucview` VALUES (1,'2022-05-11 05:37:40.372277','2022-05-11 05:43:47.871437',7,1);
+INSERT INTO `tour_tintucview` VALUES (1,'2022-05-11 05:37:40.372277','2022-05-18 01:37:28.102778',10,1);
 /*!40000 ALTER TABLE `tour_tintucview` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -690,7 +691,7 @@ CREATE TABLE `tour_user` (
   `avatar` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -699,7 +700,7 @@ CREATE TABLE `tour_user` (
 
 LOCK TABLES `tour_user` WRITE;
 /*!40000 ALTER TABLE `tour_user` DISABLE KEYS */;
-INSERT INTO `tour_user` VALUES (1,'pbkdf2_sha256$320000$zCYxq9gwN5GXq89Mc6lQtD$gUWP83TBanwc5EMGPKXDaQf0jDnchJkpr6ZNrao7JZo=','2022-05-10 09:32:17.231136',1,'admin','','','admin@gmail.com',1,1,'2022-05-04 17:29:51.997817',''),(2,'pbkdf2_sha256$320000$8a6PfONQ1biLk2Cr4apvV4$DD0DPdJ8F4hDosAwwbVu8nWDbiy8Eogpc6/qbXgAZ4M=',NULL,0,'thien','thien','phan','user123@gmail.com',0,1,'2022-05-06 18:14:33.981653','');
+INSERT INTO `tour_user` VALUES (1,'pbkdf2_sha256$320000$zCYxq9gwN5GXq89Mc6lQtD$gUWP83TBanwc5EMGPKXDaQf0jDnchJkpr6ZNrao7JZo=','2022-05-10 09:32:17.231136',1,'admin','','','admin@gmail.com',1,1,'2022-05-04 17:29:51.997817',''),(2,'pbkdf2_sha256$320000$8a6PfONQ1biLk2Cr4apvV4$DD0DPdJ8F4hDosAwwbVu8nWDbiy8Eogpc6/qbXgAZ4M=',NULL,0,'thien','thien','phan','user123@gmail.com',0,1,'2022-05-06 18:14:33.981653',''),(3,'1','2022-05-18 16:52:28.000000',1,'Thethe','the','nguyen','nguyenthe@gmail.com',0,1,'2022-05-18 16:51:43.000000','uploads/2022/05/R_1.jpg');
 /*!40000 ALTER TABLE `tour_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -747,7 +748,7 @@ CREATE TABLE `tour_user_user_permissions` (
   KEY `tour_user_user_permi_permission_id_d15c17ee_fk_auth_perm` (`permission_id`),
   CONSTRAINT `tour_user_user_permi_permission_id_d15c17ee_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
   CONSTRAINT `tour_user_user_permissions_user_id_d6f606b0_fk_tour_user_id` FOREIGN KEY (`user_id`) REFERENCES `tour_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -756,6 +757,7 @@ CREATE TABLE `tour_user_user_permissions` (
 
 LOCK TABLES `tour_user_user_permissions` WRITE;
 /*!40000 ALTER TABLE `tour_user_user_permissions` DISABLE KEYS */;
+INSERT INTO `tour_user_user_permissions` VALUES (1,3,1);
 /*!40000 ALTER TABLE `tour_user_user_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -768,4 +770,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-11 12:50:08
+-- Dump completed on 2022-05-19  0:57:54

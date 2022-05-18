@@ -1,3 +1,4 @@
+from numbers import Real
 from secrets import token_hex
 
 from django.shortcuts import render
@@ -96,7 +97,6 @@ class TinTucViewSet(viewsets.ViewSet, generics.RetrieveAPIView):
 
             return Response(CommentSerializer(c).data,
                             status=status.HTTP_201_CREATED)
-
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -150,6 +150,31 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
     def get_current_user(self, request):
         return Response(self.serializer_class(request.user).data,
                         status=status.HTTP_200_OK)
+
+
+class CommentViewSet(viewsets.ViewSet, generics.DestroyAPIView, generics.UpdateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def destroy(self, request, *args, **kwargs):
+        if request.user == self.get_object().creator:
+             return super().destroy(request, *args, **kwargs)
+
+        return Response(status=status.HTTP_403_FORBIDDEN)
+
+    def partial_update(self, request, *args, **kwargs):
+        if request.user == self.get_object().creator:
+             return super().partial_update(request, *args, **kwargs)
+
+        return Response(status=status.HTTP_403_FORBIDDEN)
+
+
+
+
+
+
+
 
 
 class AuthInfo(APIView):
