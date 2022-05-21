@@ -2,6 +2,7 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from .models import DiaDanh, Tour, TinTuc, Tag, Action, Rating, Comment, User, TinTucView
 
+
 class DiaDanhSerializer(ModelSerializer):
     class Meta:
         model = DiaDanh
@@ -14,10 +15,10 @@ class TourSerializer(ModelSerializer):
     def get_image(self, tour):
         request = self.context['request']
         name = tour.image.name
-        if name.startswith("static/"):
-            path = '/%s' % name
-        else:
-            path = '/static/%s' % name
+        # if name.startswith("static/"):
+        #     path = '/%s' % name
+        # else:
+        path = '/static/%s' % tour.image.name
 
         return request.build_absolute_uri(path)
 
